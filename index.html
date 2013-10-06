@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ambilight</title>
+		<script type="text/javascript" src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+		<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+		<script type="text/javascript" src="js/ambilight.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				window.ambi = new ambilight();
+				ambi.FPS(function(start, fps){
+					console.log(start, fps);
+				});
+				ambi.setFrame($('#fi')[0]);
+			});
+		</script>
+	</head>
+	<body>
+		<img id="fi" src="567x318.png" alt="" />
+		<table border="0" cellpadding="0" >
+			<tr>
+				<td style="width: 5px; height: 5px;"></td>
+				<td style="width: 567px; height: 5px;" id="ambiTop"></td>
+				<td style="width: 5px; height: 5px;"></td>
+			</td>
+			<tr>
+				<td style="width: 5px; height: 318px;" id="ambiLeft"></td>
+				<td style="width: 567px; height: 318px; background: url(567x318.png) no-repeat;"></td>
+				<td style="width: 5px; height: 318px;" id="ambiRight"></td>
+			</td>
+			<tr>
+				<td style="width: 5px; height: 5px;"></td>
+				<td style="width: 567px; height: 5px;" id="ambiBottom"></td>
+				<td style="width: 5px; height: 5px;"></td>
+			</td>
+	</body>
+</html>
