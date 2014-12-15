@@ -32,9 +32,27 @@
                 margin: 0;
                 background: #000;
                 text-align: center;
+                color: #fff;
+                font-family: "Futura PT", "Helvetica Neue", "Helvetica", "Open Sans", sans-serif;
+                font-size: 1em;
+                font-weight: 300;
+                word-spacing: 0.1em;
+                -webkit-font-smoothing: antialiased;
+               -moz-osx-font-smoothing: grayscale;
+                     -o-font-smoothing: antialiased;
+                        font-smoothing: antialiased;
+            }
+            a {
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255,255,255,0.8);
+                transition: all 0.2s;
+            }
+            a:hover {
+                border-bottom: 1px solid rgba(255,255,255,0);
             }
             .logo {
-                margin: 20px;
+                margin: 40px;
                 width: 250px;
                 position: relative;
                 z-index: 10;
@@ -62,6 +80,8 @@
             #fi {
                 vertical-align: middle;
                 position: relative;
+                width: 640px;
+                height: 272px;
                 z-index: 1;
             }
             .bTop {
@@ -106,6 +126,14 @@
                 /*-webkit-transition: all .1s;*/
                 /*transition: all .1s;*/
             }
+            .footer {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 20px;
+                opacity: 0.8;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -113,7 +141,7 @@
             <img class="logo" src="logo.png" alt="Ambilight">
             <div class="wrap">
                 <!-- <img id="fi" src="567x318.png" alt="" /> -->
-                <video controls id="fi" autoplay>
+                <video controls id="fi" autoplay loop>
                     <source src="vid.mp4">
                     <source src="vid.webm">
                 </video>
@@ -122,6 +150,7 @@
                 <div class="bLeft"></div>
                 <div class="bRight"></div>
             </div>
+            <div class="footer">Project created by <a href="http://nick-iv.me">Nick Iv</a>.<br />See project on <a href="https://github.com/nim579/ambilight.js">GitHub</a></div>
         </div>
     </body>
 </html>
