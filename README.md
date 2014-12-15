@@ -2,6 +2,23 @@
 
 Javascript [Ambilight](http://en.wikipedia.org/wiki/Ambilight) maker
 
+## Init
+
+~~~~~ js
+// See Options
+var options = {
+	deep: 50,
+	drawFps: true,
+	sides: {		// Ambilight diods on side
+		left: 5
+		right: 5
+		top: 5
+		bottom: 5
+	}
+}
+var ambi = new Ambilight(options);
+~~~~~
+
 ## Methods
 
 * setFrame(domObject, callback) — set image dom object for ambilighting. Return in callback with ambilight data
@@ -12,16 +29,16 @@ Javascript [Ambilight](http://en.wikipedia.org/wiki/Ambilight) maker
 ~~~~~ js
 {
 	"left": [
-		[255,255,255,255] //rgba color
+		[255,255,255,1], ... //rgba color
 	],
 	"right": [
-		[123,233,2,255]
+		[123,233,2,1], ...
 	],
 	"top": [
-		[12,5,77,255]
+		[12,5,77,1], ...
 	],
 	"bottom": [
-		[5,7,32,255]
+		[5,7,32,1], ...
 	]
 }
 ~~~~~
@@ -32,6 +49,6 @@ One side of several possible colors (you have the option **path** for side)
 
 Path *%ambilight_class%.options*
 
-* deep — pixels for get average color into deep site. Default 5
-* drawFPS — flag for call FPS method callback call. Default true
-* side.%side_name% — paths average colors for side. Default 1
+* deep — pixels for get average color into deep site. Default `50`
+* drawFPS — flag for call FPS method callback call. Default `true`
+* side.%side_name% — paths average colors for side. Default `4`

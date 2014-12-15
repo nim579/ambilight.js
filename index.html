@@ -1,38 +1,127 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Ambilight</title>
-		<script type="text/javascript" src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
-		<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
-		<script type="text/javascript" src="js/ambilight.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				window.ambi = new ambilight();
-				ambi.FPS(function(start, fps){
-					console.log(start, fps);
-				});
-				ambi.setFrame($('#fi')[0]);
-			});
-		</script>
-	</head>
-	<body>
-		<img id="fi" src="567x318.png" alt="" />
-		<table border="0" cellpadding="0" >
-			<tr>
-				<td style="width: 5px; height: 5px;"></td>
-				<td style="width: 567px; height: 5px;" id="ambiTop"></td>
-				<td style="width: 5px; height: 5px;"></td>
-			</td>
-			<tr>
-				<td style="width: 5px; height: 318px;" id="ambiLeft"></td>
-				<td style="width: 567px; height: 318px; background: url(567x318.png) no-repeat;"></td>
-				<td style="width: 5px; height: 318px;" id="ambiRight"></td>
-			</td>
-			<tr>
-				<td style="width: 5px; height: 5px;"></td>
-				<td style="width: 567px; height: 5px;" id="ambiBottom"></td>
-				<td style="width: 5px; height: 5px;"></td>
-			</td>
-	</body>
+    <head>
+        <title>Ambilight</title>
+        <script type="text/javascript" src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+        <script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+        <script type="text/javascript" src="js/ambilight.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                window.ambi = new Ambilight();
+                ambi.FPS(function(start, fps){
+                    console.log(start, fps);
+                });
+
+                $('#fi').bind('play', function(){
+                    $obj = $(this)
+                    this.TO = setInterval(function(){
+                        ambi.setFrame($obj[0]);
+                    }, 30);
+                });
+                $('#fi').bind('pause', function(){
+                    clearInterval(this.TO);
+                });
+            });
+        </script>
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                background: #000;
+                text-align: center;
+            }
+            .logo {
+                margin: 20px;
+                width: 250px;
+                position: relative;
+                z-index: 10;
+            }
+            .container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                min-height: 482px;
+                min-width: 700px;
+            }
+            .wrap {
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: 50%;
+                width: 640px;
+                height: 272px;
+                margin-top: -136px;
+                margin-left: -320px;
+                vertical-align: middle;
+            }
+            #fi {
+                vertical-align: middle;
+                position: relative;
+                z-index: 1;
+            }
+            .bTop {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 50px;
+            }
+            .bBottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 50px;
+            }
+            .bLeft {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 50px;
+            }
+            .bRight {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0px;
+                width: 50px;
+            }
+            .bColorHor {
+                display: inline-block;
+                height: 50px;
+                vertical-align: top;
+                /*-webkit-transition: all .1s;*/
+                /*transition: all .1s;*/
+            }
+            .bColorVer {
+                display: inline-block;
+                width: 50px;
+                vertical-align: top;
+                /*-webkit-transition: all .1s;*/
+                /*transition: all .1s;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img class="logo" src="logo.png" alt="Ambilight">
+            <div class="wrap">
+                <!-- <img id="fi" src="567x318.png" alt="" /> -->
+                <video controls id="fi" autoplay>
+                    <source src="vid.mp4">
+                    <source src="vid.webm">
+                </video>
+                <div class="bTop"></div>
+                <div class="bBottom"></div>
+                <div class="bLeft"></div>
+                <div class="bRight"></div>
+            </div>
+        </div>
+    </body>
 </html>

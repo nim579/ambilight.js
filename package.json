@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Javascript Ambilight maker",
   "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt": "~0.4.1"
+    "coffee-script": "^1.8.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
